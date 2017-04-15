@@ -1,3 +1,4 @@
+// map styles that load on initMap
 var styles = [
     {
         "featureType":"all",
@@ -10,4 +11,4 @@ var styles = [
             {"hue":"#435158"}
         ]
     }
-]
+];

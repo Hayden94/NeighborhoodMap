@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 
     <link rel="stylesheet" type='text/css' href='css/style.css'>
     <link rel="stylesheet" type='text/css' href='css/lib/bootstrap.min.css'>
@@ -13,6 +13,11 @@
             <h1>Search</h1>
 
             <hr>
+
+            <div>
+                <input id="zoom-to-area-text" type="text" placeholder="Search for you're favorite area!">
+                <input id='zoom-to-area' type="button" value="Search">
+            </div>
         </div>
 
         <div id="map"></div>
@@ -23,7 +28,7 @@
     <script src='js/map.model.js'></script>
     <script src='js/map.view.js'></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzNeda7dm7uHsLOXryoqRFM2RuHcignMI&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyAzNeda7dm7uHsLOXryoqRFM2RuHcignMI&callback=initMap"
     async defer></script>
   </body>
 </html>
