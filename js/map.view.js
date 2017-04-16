@@ -20,13 +20,12 @@ function initMap() {
         var position = locations[i].location;
         var title = locations[i].title;
         var category = locations[i].category;
-        console.log(position);
 
         // Create marker per location and put in markers array
         var marker = new google.maps.Marker({
             map: map,
             position: position,
-            icon: iconUrl,
+            icon: whiteIcon,
             title: title,
             category: category,
             animation: google.maps.Animation.DROP,
@@ -39,6 +38,13 @@ function initMap() {
         // Create an on click event to display info window.
         marker.addListener('click', function() {
             populateInfoWindow(this, largeInfoWindow);
+
+            // loop through markers and set all icons to white
+            for (var j = 0; j < markers.length; j++) {
+                markers[j].setIcon(whiteIcon);
+            }
+            // set selected icon to blue
+            this.setIcon(blueIcon);
         });
     }
 
@@ -50,7 +56,9 @@ function initMap() {
             infowindow.setContent("<div class='infowindow'><h3>" + marker.title + "</h3></br>Category: " + marker.category + "</div>");
             infowindow.open(map, marker);
 
-            infowinow.addListener('closeclick', function() {
+            infowindow.addListener('closeclick', function() {
+                infowindow.marker.setIcon(whiteIcon);
+                infowindow.marker = null;
                 infowindow.setMarker = null;
             });
         }

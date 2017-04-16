@@ -4,7 +4,9 @@ var markers = [];
 
 var mapCenter = {lat: 25.7955, lng: -80.1918};
 
-var iconUrl = 'http://i.imgur.com/yY8lPe2.png';
+var whiteIcon = 'http://i.imgur.com/yY8lPe2.png';
+
+var blueIcon = 'http://i.imgur.com/fEE8ZUy.png';
 
 // map styles that load on initMap
 var styles = [
