@@ -88,6 +88,13 @@ function zoomToArea() {
     }
 };
 
+// Map center will reset to miami center if it is not in focus
+function resetMap() {
+    if (map.getCenter() != mapCenter) {
+        map.setCenter(mapCenter);
+    }
+};
+
 // Event listener to run zoomToArea() function once Search button is clicked
 $("#zoom-to-area").click(function() {
     zoomToArea();
@@ -98,4 +105,8 @@ $('#zoom-to-area-text').keypress(function(e) {
     if (key == 13) {
         zoomToArea();
     }
+});
+
+$('#reset').click(function() {
+    resetMap();
 });
