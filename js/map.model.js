@@ -1,15 +1,14 @@
+
 var map;
 
-var markers = [];
+var markers = ko.observableArray([]);
 
-var mapCenter = {lat: 25.7955, lng: -80.1918};
+var whiteIcon = ko.observable('http://i.imgur.com/yY8lPe2.png');
 
-var whiteIcon = 'http://i.imgur.com/yY8lPe2.png';
+var blueIcon = ko.observable('http://i.imgur.com/fEE8ZUy.png');
 
-var blueIcon = 'http://i.imgur.com/fEE8ZUy.png';
-
-// map styles that load on initMap
-var styles = [
+var mapCenter = ko.observableArray([{lat: 25.7955, lng: -80.1918}]);
+var styles = ko.observableArray([
     {
         "featureType":"all",
         "elementType":"all",
@@ -21,9 +20,9 @@ var styles = [
             {"hue":"#435158"}
         ]
     }
-];
+]);
 
-var locations = [
+var locations = ko.observableArray([
     {
         title: 'Bazaar Mar',
         location: {lat: 25.761180, lng: -80.193582},
@@ -190,7 +189,5 @@ var locations = [
         address: '270 Biscayne Blvd Way, Miami, FL 33131',
         category: 'Japanese, Sushi, Noodles'
     }
-];
+]);
 
-
-// https://www.thrillist.com/eat/miami/best-restaurants-miami
