@@ -19,6 +19,8 @@ function initMap() {
         // Get specific location data
         var position = locations[i].location;
         var title = locations[i].title;
+        var description = locations[i].description;
+        var address = locations[i].address;
         var category = locations[i].category;
 
         // Create marker per location and put in markers array
@@ -27,6 +29,8 @@ function initMap() {
             position: position,
             icon: whiteIcon,
             title: title,
+            description: description,
+            address: address,
             category: category,
             animation: google.maps.Animation.DROP,
             id: i
@@ -53,7 +57,33 @@ function initMap() {
     function populateInfoWindow(marker, infowindow) {
         if (infowindow.marker != marker) {
             infowindow.marker = marker;
-            infowindow.setContent("<div class='infowindow'><h3>" + marker.title + "</h3></br>Category: " + marker.category + "</div>");
+
+            var output = "<div class='infowindow'>";
+            output += "<h3 class='infotitle'>";
+            output += marker.title;
+            output += "</h3>";
+            output += "<div class='infoblue'>";
+            output += "Description";
+            output += "</div>";
+            output += "<div class='infodescription'>";
+            output += "&emsp;" + marker.description;
+            output += "</div>";
+            output += "</br>";
+            output += "<div class='infoblue'>";
+            output += "Address";
+            output += "</div>";
+            output += "<div class='infoaddress'>";
+            output += marker.address;
+            output += "</div>";
+            output += "</br>";
+            output += "<div class='infoblue'>";
+            output += "Category";
+            output += "</div>";
+            output += "<div class='infocategory'>";
+            output += marker.category;
+            output += "</div>";
+            output += "</div>";
+            infowindow.setContent(output);
             infowindow.open(map, marker);
 
             infowindow.addListener('closeclick', function() {

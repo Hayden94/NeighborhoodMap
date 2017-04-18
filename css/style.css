@@ -20,11 +20,6 @@ html, body {
     border-left: 5px solid #0069cc;
 }
 
-.container {
-    height: 100%;
-    position: relative;
-}
-
 .sidebar {
     margin-top: 10px;
     height: 100%;
@@ -55,4 +50,33 @@ html, body {
 
 .infowindow {
     color: black;
+    width: 250px;
+}
+
+.infotitle {
+    text-align: center;
+    color: white;
+    background-color: #00284d;
+    border: 5px solid #0069cc;
+    border-radius: 10px;
+    padding: 10px 0px;
+}
+
+.infoblue {
+    color: #0069cc;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.infodescription {
+    margin: 0px 10px;
+}
+
+.infoaddress {
+    text-align: center;
+}
+
+.infocategory {
+    text-align: center;
 }
