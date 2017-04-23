@@ -1,14 +1,9 @@
+var whiteIcon = 'http://i.imgur.com/yY8lPe2.png';
 
-var map;
+var blueIcon = 'http://i.imgur.com/fEE8ZUy.png';
 
-var markers = ko.observableArray([]);
-
-var whiteIcon = ko.observable('http://i.imgur.com/yY8lPe2.png');
-
-var blueIcon = ko.observable('http://i.imgur.com/fEE8ZUy.png');
-
-var mapCenter = ko.observableArray([{lat: 25.7955, lng: -80.1918}]);
-var styles = ko.observableArray([
+var mapCenter = {lat: 25.7955, lng: -80.1918};
+var styles = [
     {
         "featureType":"all",
         "elementType":"all",
@@ -20,9 +15,9 @@ var styles = ko.observableArray([
             {"hue":"#435158"}
         ]
     }
-]);
+];
 
-var locations = ko.observableArray([
+var locations = [
     {
         title: 'Bazaar Mar',
         location: {lat: 25.761180, lng: -80.193582},
@@ -189,5 +184,5 @@ var locations = ko.observableArray([
         address: '270 Biscayne Blvd Way, Miami, FL 33131',
         category: 'Japanese, Sushi, Noodles'
     }
-]);
+];
 

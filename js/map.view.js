@@ -1,33 +1,32 @@
+var map;
+
+var markers = [];
+
 function initMap() {
     // create new map with center initializing on Miami
     map = new google.maps.Map($('#map')[0], {
-        center: mapCenter()[0],
-        styles: styles(),
+        center: mapCenter,
+        styles: styles,
         zoom: 13
     });
 
     var largeInfoWindow = new google.maps.InfoWindow();
     var bounds = new google.maps.LatLngBounds();
 
-    // autocomplete functionality binded to the bounds of the map
-    var input = $('#zoom-to-area-text')[0];
-    var autocomplete = new google.maps.places.Autocomplete(input);
-    autocomplete.bindTo('bounds', map);
-
     // Loop through the locations array to retrieve data and display markers
-    for (var i = 0; i < locations().length; i++) {
+    for (var i = 0; i < locations.length; i++) {
         // Get specific location data
-        var position = locations()[i].location;
-        var title = locations()[i].title;
-        var description = locations()[i].description;
-        var address = locations()[i].address;
-        var category = locations()[i].category;
+        var position = locations[i].location;
+        var title = locations[i].title;
+        var description = locations[i].description;
+        var address = locations[i].address;
+        var category = locations[i].category;
 
         // Create marker per location and put in markers array
         var marker = new google.maps.Marker({
             map: map,
             position: position,
-            icon: whiteIcon(),
+            icon: whiteIcon,
             title: title,
             description: description,
             address: address,
@@ -37,7 +36,7 @@ function initMap() {
         });
 
         // Push the marker to our array of markers.
-        markers().push(marker);
+        markers.push(marker);
         // Extend bounds of map to position of each marker
         bounds.extend(marker.position);
         // Create an on click event to display info window.
@@ -45,12 +44,17 @@ function initMap() {
             populateInfoWindow(this, largeInfoWindow);
 
             // loop through markers and set all icons to white
-            for (var j = 0; j < markers().length; j++) {
-                markers()[j].setIcon(whiteIcon());
+            for (var j = 0; j < markers.length; j++) {
+                markers[j].setIcon(whiteIcon);
             }
             // set selected icon to blue
-            this.setIcon(blueIcon());
+            this.setIcon(blueIcon);
         });
+
+    // autocomplete functionality binded to the bounds of the map
+    var input = $('#zoom-to-area-text')[0];
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.bindTo('bounds', map);
     }
 
     // This function is called when a marker is clicked, populating it with specific marker data
@@ -85,12 +89,15 @@ function initMap() {
             infowindow.open(map, marker);
 
             infowindow.addListener('closeclick', function() {
-                infowindow.marker.setIcon(whiteIcon());
+                infowindow.marker.setIcon(whiteIcon);
                 infowindow.marker = null;
                 infowindow.setMarker = null;
             });
         }
     }
+
+    var vm = new ViewModel();
+    ko.applyBindings(vm);
 };
 
 /* // View function for to retrieve each ind. location from locations arr
@@ -126,10 +133,11 @@ function zoomToArea() {
     }
 };
 
-// Map center will reset to miami center if it is not in focus
+// Map center will reset to miami center and reset zoom
 function resetMap() {
-    if (map.getCenter() != mapCenter()[0]) {
-        map.setCenter(mapCenter()[0]);
+    if (map.getCenter() != mapCenter | map.getZoom() != 13) {
+        map.setCenter(mapCenter);
+        map.setZoom(13);
     }
 };
 
@@ -148,5 +156,3 @@ $('#zoom-to-area-text').keypress(function(e) {
 $('#reset').click(function() {
     resetMap();
 });
-
-ko.applyBindings(new markers());
