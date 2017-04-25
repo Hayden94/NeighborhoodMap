@@ -2,6 +2,8 @@ var map;
 
 var markers = [];
 
+var infowindow = new google.maps.InfoWindow();
+
 function initMap() {
     // create new map with center initializing on Miami
     map = new google.maps.Map($('#map')[0], {
@@ -10,38 +12,33 @@ function initMap() {
         zoom: 13
     });
 
-    var largeInfoWindow = new google.maps.InfoWindow();
     var bounds = new google.maps.LatLngBounds();
 
     // Loop through the locations array to retrieve data and display markers
     for (var i = 0; i < locations.length; i++) {
         // Get specific location data
         var position = locations[i].location;
-        var title = locations[i].title;
-        var description = locations[i].description;
-        var address = locations[i].address;
-        var category = locations[i].category;
 
         // Create marker per location and put in markers array
         var marker = new google.maps.Marker({
             map: map,
             position: position,
             icon: whiteIcon,
-            title: title,
-            description: description,
-            address: address,
-            category: category,
             animation: google.maps.Animation.DROP,
             id: i
         });
 
         // Push the marker to our array of markers.
         markers.push(marker);
+
+        // Make each marker a property of the location
+        locations[i].marker = marker;
+
         // Extend bounds of map to position of each marker
         bounds.extend(marker.position);
         // Create an on click event to display info window.
         marker.addListener('click', function() {
-            populateInfoWindow(this, largeInfoWindow);
+            // populateInfoWindow(this, largeInfoWindow);
 
             // loop through markers and set all icons to white
             for (var j = 0; j < markers.length; j++) {
@@ -57,58 +54,9 @@ function initMap() {
     autocomplete.bindTo('bounds', map);
     }
 
-    // This function is called when a marker is clicked, populating it with specific marker data
-    // The function closes the infowindow once the info window is closed
-    function populateInfoWindow(marker, infowindow) {
-        if (infowindow.marker != marker) {
-            infowindow.marker = marker;
-
-            var output = "<div class='infowindow'>";
-            output += "<h3 class='infotitle' data-bind='text: title'>";
-            output += "</h3>";
-            output += "<div class='infoblue'>"
-            output += "Description";
-            output += "</div>";
-            output += "<div class='infodescription'>";
-            output += "</div>";
-            output += "</br>";
-            output += "<div class='infoblue'>";
-            output += "Address";
-            output += "</div>"
-            output += "<div class='infoaddress'>";
-            output += "</div>";
-            output += "</br>";
-            output += "<div class='infoblue'>";
-            output += "Category";
-            output += "</div>";
-            output += "<div class='infocategory'>";
-            output += "</div>";
-            output += "</div>";
-
-            infowindow.setContent(output);
-            infowindow.open(map, marker);
-
-            infowindow.addListener('closeclick', function() {
-                infowindow.marker.setIcon(whiteIcon);
-                infowindow.marker = null;
-                infowindow.setMarker = null;
-            });
-        }
-    }
-
     var vm = new ViewModel();
     ko.applyBindings(vm);
 };
-
-/* // View function for to retrieve each ind. location from locations arr
-function Location(data) {
-    this.title = ko.observable(data.title);
-    this.latLng = ko.observableArray(data.location);
-    this.description = ko.observable(data.description);
-    this.address = ko.observable(data.address);
-    this.category = ko.observable(data.category);
-};
-*/
 
 // Get the address from text box and set map to new center once the search button is clicked
 function zoomToArea() {
