@@ -2,8 +2,6 @@ var map;
 
 var markers = [];
 
-var infowindow = new google.maps.InfoWindow();
-
 function initMap() {
     // create new map with center initializing on Miami
     map = new google.maps.Map($('#map')[0], {
