@@ -2,13 +2,14 @@ html, body {
         height: 100%;
         margin: 0;
         padding: 0;
+        overflow: hidden;
       }
 
 .bg {
     background: #00284d;
     height: 100%;
     font-family: 'Roboto Condensed', sans-serif;
-    color: #e6e6e6;
+    color: #e60000;
 }
 
 #map {
@@ -27,8 +28,35 @@ html, body {
     text-align: left;
 }
 
-.sidebar h1 {
+.sidebar h1, .sidebar h2 {
     text-align: center;
+}
+
+.sidebar h3 {
+    text-align: center;
+    color: #ff1a1a;
+}
+
+#filters {
+    color: #e6e6e6;
+}
+
+#restaurant-list {
+    width: 100%;
+    height: 350px;
+    overflow: auto;
+}
+
+#ind-restaurant {
+    color: #e6e6e6;
+}
+
+#ind-restaurant:hover {
+    color: #e60000;
+}
+
+#ind-restaurant, #ind-restaurant:hover, #ind-restaurant:active, #ind-restaurant:visited, #ind-restaurant:focus {
+    text-decoration: none;
 }
 
 #zoom-to-area-text {

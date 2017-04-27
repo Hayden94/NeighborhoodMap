@@ -22,6 +22,103 @@
             <input id="reset" type="button" value="Reset Map">
 
             <hr>
+
+            <h2>Restaurants</h2>
+
+            <h3>Food genres</h3>
+
+            <div id="filters">
+                <div class='row'>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="BBQ"> Seafood
+                    </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Vietnamese"> Vietnamese
+                    </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="South African"> South African
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Greek"> Greek
+                    </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Pizza"> Pizza
+                    </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Italian"> Italian
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Caribbean"> Caribbean
+                    </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Mexican"> Mexican
+                    </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Thai"> Thai
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="checkbox" name="BBQ"> BBQ
+                    </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="American"> American
+                    </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Mandarin"> Mandarin
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Peruvian"> Peruvian
+                    </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Steakhouse"> Steakhouse
+                    </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Sushi"> Sushi
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Southern"> Southern
+                    </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Brunch"> Brunch
+                    </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Whine house"> Whine House
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Japanese"> Japanese
+                    </div>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="Noodle"> Noodle
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div id="restaurant-list" data-bind="foreach: locations">
+                <a href="#" id="ind-restaurant">
+                    <h4 data-bind="text: title, click: $parent.openInfoWindow"></h4>
+                </a>
+            </div>
         </div>
 
         <div id="map"></div>

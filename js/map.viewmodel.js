@@ -16,6 +16,9 @@ var ViewModel = function() {
     self.locationMarkers = ko.observableArray([]);
     self.infowindow = new google.maps.InfoWindow();
 
+    // for yelp fusion api
+    // var clientId = 'IBd5X_oO6aJyNMPMai8Q3A';
+    //var clientSecret = 'PFwrZlr2sa5giWHS5btIQSD2aKOZ7n6xOhJ61siLqHZ6vIFMHnzVAulwsyraO1jW';
 
     locations.forEach(function(location) {
         self.locationMarkers.push(new Location(location));
@@ -51,8 +54,6 @@ var ViewModel = function() {
         output += location.category;
         output += "</div>";
         output += "</div>";
-
-        console.log(output);
 
         self.infowindow.setContent(output);
 
