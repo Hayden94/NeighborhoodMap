@@ -43,8 +43,25 @@ html, body {
 
 #restaurant-list {
     width: 100%;
-    height: 350px;
+    height: 250px;
     overflow: auto;
+}
+
+#restaurant-list::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #e6e6e6;
+}
+
+#restaurant-list::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #e6e6e6;
+}
+
+#restaurant-list::-webkit-scrollbar-thumb
+{
+    background-color: #b30000;
 }
 
 #ind-restaurant {
@@ -83,15 +100,15 @@ html, body {
 
 .infotitle {
     text-align: center;
-    color: white;
+    color: #e6e6e6;
     background-color: #00284d;
-    border: 5px solid #0069cc;
+    border: 5px solid #e60000;
     border-radius: 10px;
     padding: 10px 0px;
 }
 
-.infoblue {
-    color: #0069cc;
+.infored {
+    color: #e60000;
     text-align: center;
     font-weight: bold;
     padding-bottom: 5px;

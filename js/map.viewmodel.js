@@ -33,21 +33,21 @@ var ViewModel = function() {
         output += "<h3 class='infotitle' data-bind='text: title'>";
         output += location.title;
         output += "</h3>";
-        output += "<div class='infoblue'>"
+        output += "<div class='infored'>"
         output += "Description";
         output += "</div>";
         output += "<div class='infodescription'>";
         output += location.description;
         output += "</div>";
         output += "</br>";
-        output += "<div class='infoblue'>";
+        output += "<div class='infored'>";
         output += "Address";
         output += "</div>"
         output += "<div class='infoaddress'>";
         output += location.address;
         output += "</div>";
         output += "</br>";
-        output += "<div class='infoblue'>";
+        output += "<div class='infored'>";
         output += "Category";
         output += "</div>";
         output += "<div class='infocategory'>";
