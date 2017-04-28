@@ -2,7 +2,7 @@ var whiteIcon = 'http://i.imgur.com/yY8lPe2.png';
 
 var blueIcon = 'http://i.imgur.com/fEE8ZUy.png';
 
-var mapCenter = {lat: 25.7955, lng: -80.1918};
+var mapCenter = {lat: 25.8070, lng: -80.1918};
 var styles = [
     {
         "featureType":"all",
