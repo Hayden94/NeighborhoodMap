@@ -63,5 +63,5 @@ $("input[name='Seafood']").click(function() {
 });
 
 $("#menu-icon").click(function () {
-    $(".navbar").toggle();
+    $(".navbar").slideToggle("slow");
 });
