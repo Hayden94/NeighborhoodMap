@@ -32,7 +32,8 @@ html, body {
     display: inline-block;
     padding: 0px 10px;
     margin: 15px auto 0px auto;
-    background-color: #e6e6e6;
+    background-color: #00284d;
+    color: #e6e6e6;
     border: 5px solid #e60000;
     border-radius: 10px;
 }

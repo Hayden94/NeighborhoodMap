@@ -5,14 +5,15 @@ var blueIcon = 'http://i.imgur.com/fEE8ZUy.png';
 var mapCenter = {lat: 25.8070, lng: -80.1918};
 var styles = [
     {
-        "featureType":"all",
-        "elementType":"all",
+        "featureType": "all",
+        "elementType": "all",
         "stylers": [
-            {"invert_lightness":true},
-            {"saturation":10},
-            {"lightness":30},
-            {"gamma":0.5},
-            {"hue":"#435158"}
+            {
+                "saturation": -100
+            },
+            {
+                "gamma": 0.5
+            }
         ]
     }
 ];

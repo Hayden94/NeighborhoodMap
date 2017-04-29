@@ -2,13 +2,13 @@
     #restaurant-list {
         overflow-y: auto;
         overflow-x: hidden;
-        width: auto;
+        width: 50%;
     }
 
     #filters {
         overflow-y: auto;
         overflow-x: hidden;
-        width: auto;
+        width: 50%;
         height: 125px;
     }
 

@@ -21,6 +21,7 @@ var ViewModel = function() {
     //var clientSecret = 'PFwrZlr2sa5giWHS5btIQSD2aKOZ7n6xOhJ61siLqHZ6vIFMHnzVAulwsyraO1jW';
 
     locations.forEach(function(location) {
+
         self.locationMarkers.push(new Location(location));
 
         location.marker.addListener('click', function() {
