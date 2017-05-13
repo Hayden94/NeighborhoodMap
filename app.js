@@ -1,6 +1,9 @@
 var express = require("express");
 var app = express();
-var Yelp = require('yelpv3');
+const yelp = require('yelp-fusion');
+
+const clientId = 'IBd5X_oO6aJyNMPMai8Q3A';
+const clientSecret = 'PFwrZlr2sa5giWHS5btIQSD2aKOZ7n6xOhJ61siLqHZ6vIFMHnzVAulwsyraO1jW';
 
 var port = 8080;
 
@@ -9,15 +12,22 @@ app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/js'));
 app.use(express.static(__dirname + '/img'));
 
-var yelp = new Yelp({
-    app_id: 'IBd5X_oO6aJyNMPMai8Q3A',
-    app_secret: 'PFwrZlr2sa5giWHS5btIQSD2aKOZ7n6xOhJ61siLqHZ6vIFMHnzVAulwsyraO1jW',
+const searchRequest = {
+    term: 'Crust',
+    location: 'miami, fl'
+};
+
+yelp.accessToken(clientId, clientSecret).then(response => {
+    const client = yelp.client(response.jsonBody.access_token);
+
+    client.search(searchRequest).then(response => {
+        const firstResult = response.jsonBody.businesses[0];
+        const restaurant = JSON.stringify(firstResult, null, 4);
+        console.log(restaurant);
+    });
+}).catch( e => {
+    console.log(e);
 });
-
-yelp.business('bazaar-mar-miami')
-.then(function(data) { console.log(data); })
-.catch(function(err) { console.log(err); });
-
 
 app.get('/', (request, response) => {
   response.sendFile("index.html");
