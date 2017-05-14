@@ -13,10 +13,16 @@ app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/js'));
 app.use(express.static(__dirname + '/img'));
 
-// search request criteria
-const searchRequest = {
-    term: 'Bazaar Mar',
-    location: 'miami, fl'
+// Include map.model.js for locations variable
+var model = require('./js/map.model');
+
+var locations = model.locations;
+
+for (var i = 0; i < locations.length; i++) {
+    var searchRequest = {
+        term: locations[i].title,
+        location: 'miami, fl'
+    };
 };
 
 // give yelp client API info and issue a response
@@ -25,9 +31,9 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 
     // return first restaurant result based on searchRequest conditions
     client.search(searchRequest).then(response => {
-        const firstResult = response.jsonBody.businesses[0];
-        const restaurant = JSON.stringify(firstResult, null, 4);
-        console.log(restaurant);
+        const result = response.jsonBody.businesses[0];
+        const restaurant = JSON.stringify(result, null, 4);
+        // console.log(restaurant);
     });
 }).catch( e => {
     console.log(e);

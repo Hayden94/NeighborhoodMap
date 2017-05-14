@@ -187,3 +187,5 @@ var locations = [
     }
 ];
 
+exports.locations = locations;
+
