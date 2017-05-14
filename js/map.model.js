@@ -36,15 +36,12 @@ var locations = [
         category: 'Vietnamese'
     },
     {
-        title: 'Big Easy Whine Bar & Grill',
-        location: {lat: 25.767167, lng: -80.193087},
-        description: 'An unpretentious yet sophisticated dining destination ' +
-                    'hailing from the stunning Western Cape region of ' +
-                    'South Africa – inspired by the lifestyle and spirit of ' +
-                    'South Africa.',
-        address: 'Brickell City Centre, 701 S Miami Ave #339a, ' +
-                    'Miami, FL 33131',
-        category: 'South African'
+        title: 'Happy Wine Calle Ocho',
+        location: {lat: 25.763513, lng: -80.289741},
+        description: 'Discount wine store also features happy-hour ' +
+            'tapas & occasional live music in a festive atmosphere.',
+        address: '5792 SW 8th St Miami, FL 33144',
+        category: 'Whine House'
     },
     {
         title: 'Santorini by Georgios',
@@ -130,7 +127,7 @@ var locations = [
         category: 'BBQ, Steakhouse'
     },
     {
-        title: 'Tonis, Sushi Bar',
+        title: 'Toni\'s Sushi Bar',
         location: {lat: 25.783189, lng: -80.132584},
         description: 'Upscale destination luring locals with traditional ' +
                     '& contemporary Japanese cuisine & sushi.',
@@ -138,7 +135,7 @@ var locations = [
         category: 'Sushi'
     },
     {
-        title: 'Yardbird Southarn Table & Bar',
+        title: 'Yardbird Southern Table & Bar',
         location: {lat: 25.789111, lng: -80.140227},
         description: 'Rustic outpost attracting foodies with inventive ' +
                     'farm-to-table Southern comfort food & bourbon bar.',

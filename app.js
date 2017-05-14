@@ -15,27 +15,39 @@ app.use(express.static(__dirname + '/img'));
 
 // Include map.model.js for locations variable
 var model = require('./js/map.model');
-
 var locations = model.locations;
 
+// array to run through yelp search
+var locationSearch = [];
+
+var yelpResults = [];
+
+// loop over location titles and push to an array
 for (var i = 0; i < locations.length; i++) {
     var searchRequest = {
         term: locations[i].title,
         location: 'miami, fl'
     };
+
+    locationSearch.push(searchRequest);
 };
 
 // give yelp client API info and issue a response
 yelp.accessToken(clientId, clientSecret).then(response => {
-    const client = yelp.client(response.jsonBody.access_token);
+    var client = yelp.client(response.jsonBody.access_token);
 
-    // return first restaurant result based on searchRequest conditions
-    client.search(searchRequest).then(response => {
-        const result = response.jsonBody.businesses[0];
-        const restaurant = JSON.stringify(result, null, 4);
-        // console.log(restaurant);
-    });
-}).catch( e => {
+    for (var j = 0; j < locationSearch.length; j++) {
+        var restaurant;
+        client.search(locationSearch[j]).then(response => {
+            var result = response.jsonBody.businesses[0];
+            restaurant = JSON.stringify(result, ['name', 'image_url', 'url', 'rating', 'price', 'display_phone']);
+            // yelpResults.push(restaurant);
+            console.log(restaurant)
+        }).catch(e => {
+            console.log(e);
+        });
+    };
+}).catch(e => {
     console.log(e);
 });
 
