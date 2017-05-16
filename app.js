@@ -18,9 +18,9 @@ var model = require('./js/map.model');
 var locations = model.locations;
 
 // array to run through yelp search
-var locationSearch = [];
+var locationSearch = new Array();
 
-var yelpResults = [];
+var yelpResults = new Array();
 
 // loop over location titles and push to an array
 for (var i = 0; i < locations.length; i++) {
@@ -35,14 +35,13 @@ for (var i = 0; i < locations.length; i++) {
 // give yelp client API info and issue a response
 yelp.accessToken(clientId, clientSecret).then(response => {
     var client = yelp.client(response.jsonBody.access_token);
+    var result, restaurant;
 
     for (var j = 0; j < locationSearch.length; j++) {
-        var restaurant;
         client.search(locationSearch[j]).then(response => {
-            var result = response.jsonBody.businesses[0];
+            result = response.jsonBody.businesses[0];
             restaurant = JSON.stringify(result, ['name', 'image_url', 'url', 'rating', 'price', 'display_phone']);
-            // yelpResults.push(restaurant);
-            console.log(restaurant)
+            yelpResults.push(restaurant);
         }).catch(e => {
             console.log(e);
         });

@@ -20,6 +20,14 @@ var styles = [
 
 var locations = [
     {
+        title: 'A Fish Called Avalon',
+        location: {lat: 25.776958, lng: -80.131709},
+        description: 'Airy, upscale haunt featuring eclectic seafood ' +
+                    'dishes & prime people-watching from sidewalk seats.',
+        address: '700 Ocean Dr, Miami Beach, FL 33139',
+        category: 'Seafood'
+    },
+    {
         title: 'Bazaar Mar',
         location: {lat: 25.761180, lng: -80.193582},
         description: 'SLS Hotel\'s sleek Philippe Starck designed ' +
@@ -28,29 +36,28 @@ var locations = [
         category: 'Seafood'
     },
     {
-        title: 'Phuc Yea',
-        location: {lat: 25.840503, lng: -80.184657},
-        description: 'Pho & other Vietnamese staples served in a sultry, ' +
-                    'industrial space, with indoor/outdoor seating.',
-        address: '7100 Biscayne Blvd, Miami, FL 33138',
-        category: 'Vietnamese'
+        title: 'Blue Collar Restaurant',
+        location: {lat: 25.837844, lng: -80.184624},
+        description: 'Comfort-food favorites are bumped up a notch at ' +
+                    'this American restaurant with \'70s-inspired style.',
+        address: '6730 Biscayne Blvd, Miami, FL 33138',
+        category: 'BBQ, American'
     },
     {
-        title: 'Happy Wine Calle Ocho',
-        location: {lat: 25.763513, lng: -80.289741},
-        description: 'Discount wine store also features happy-hour ' +
-            'tapas & occasional live music in a festive atmosphere.',
-        address: '5792 SW 8th St Miami, FL 33144',
-        category: 'Whine House'
+        title: 'Cibo Wine Bar',
+        location: {lat: 25.767860, lng: -80.133633},
+        description: 'Modern-rustic spot delivering classic Italian fare ' +
+                    '& large roster of wines from whimsical wine wall. ',
+        address: '45 Miracle Mile, Miami, FL 33134',
+        category: 'Italian, Whine house'
     },
     {
-        title: 'Santorini by Georgios',
-        location: {lat: 25.769685, lng: -80.132389},
-        description: 'A unique place that offers something for ' +
-                    'everyone providing fresh mediterranean cuisine ' +
-                    'which embraces Greek cultures.',
-        address: '101 Ocean Dr, Miami Beach, FL 33139',
-        category: 'Greek'
+        title: 'Coyo Taco',
+        location: {lat: 25.799690, lng: -80.199316},
+        description: 'Upbeat spot (with a hidden bar) for Mexican street ' +
+                    'food & margaritas made with house-brand tequila.',
+        address: '2300 NW 2nd Ave, Miami, FL 33127',
+        category: 'Mexican'
     },
     {
         title: 'Crust',
@@ -61,21 +68,44 @@ var locations = [
         category: 'Pizza, Italian'
     },
     {
-        title: 'Zest Miami',
-        location: {lat: 25.770810, lng: -80.189372},
-        description: 'Inventive takes on island fare headline the menu ' +
-                    'at this modern restaurant/market.',
-        address: '200 South Biscayne Boulevard, Southeast Financial ' +
-                    'Center, Miami, FL 33131',
-        category: 'Caribbean'
+        title: 'Eating House',
+        location: {lat: 25.764205, lng: -80.259476},
+        description: 'Menu of eclectic, locally sourced dishes in a ' +
+                    'low-key interior decked with graffiti art. ',
+        address: '804 Ponce De Leon Blvd, Coral Gables, FL 33134',
+        category: 'Brunch, American'
     },
     {
-        title: 'Coyo Taco',
-        location: {lat: 25.799690, lng: -80.199316},
-        description: 'Upbeat spot (with a hidden bar) for Mexican street ' +
-                    'food & margaritas made with house-brand tequila.',
-        address: '2300 NW 2nd Ave, Miami, FL 33127',
-        category: 'Mexican'
+        title: 'Happy Wine Calle Ocho',
+        location: {lat: 25.763513, lng: -80.289741},
+        description: 'Discount wine store also features happy-hour ' +
+            'tapas & occasional live music in a festive atmosphere.',
+        address: '5792 SW 8th St Miami, FL 33144',
+        category: 'Whine House'
+    },
+    {
+        title: 'Katsuya',
+        location: {lat: 25.792607, lng: -80.128684},
+        description: 'Stylish choice for acclaimed sushi in a colorful, ' +
+                    'butterfly-covered backdrop at the SLS Hotel. ',
+        address: '1701 Collins Ave, Miami Beach, FL 33139',
+        category: 'Sushi'
+    },
+    {
+        title: 'La Mar',
+        location: {lat: 25.765296, lng: -80.185251},
+        description: 'Chic waterfront find offering Peruvian & fusion ' +
+                    'fare, plus bars for cocktails, ceviche & anticucho.',
+        address: '500 Brickell Key Dr, Miami, FL 33131',
+        category: 'Mandarin, Peruvian'
+    },
+    {
+        title: 'Macchialina Taverna Rustica',
+        location: {lat: 25.778578, lng: -80.141224},
+        description: 'Vibrant trattoria presenting rustic Italian recipes ' +
+                    'in a stylish, brick-walled setting.',
+        address: '820 Alton Rd, Miami Beach, FL 33139 ',
+        category: 'BBQ, Italian'
     },
     {
         title: 'Mignonette',
@@ -95,28 +125,12 @@ var locations = [
         category: 'Thai'
     },
     {
-        title: 'Blue Collar Restaurant',
-        location: {lat: 25.837844, lng: -80.184624},
-        description: 'Comfort-food favorites are bumped up a notch at ' +
-                    'this American restaurant with \'70s-inspired style.',
-        address: '6730 Biscayne Blvd, Miami, FL 33138',
-        category: 'BBQ, American'
-    },
-    {
-        title: 'Macchialina Taverna Rustica',
-        location: {lat: 25.778578, lng: -80.141224},
-        description: 'Vibrant trattoria presenting rustic Italian recipes ' +
-                    'in a stylish, brick-walled setting.',
-        address: '820 Alton Rd, Miami Beach, FL 33139 ',
-        category: 'BBQ, Italian'
-    },
-    {
-        title: 'La Mar',
-        location: {lat: 25.765296, lng: -80.185251},
-        description: 'Chic waterfront find offering Peruvian & fusion ' +
-                    'fare, plus bars for cocktails, ceviche & anticucho.',
-        address: '500 Brickell Key Dr, Miami, FL 33131',
-        category: 'Mandarin, Peruvian'
+        title: 'Phuc Yea',
+        location: {lat: 25.840503, lng: -80.184657},
+        description: 'Pho & other Vietnamese staples served in a sultry, ' +
+                    'industrial space, with indoor/outdoor seating.',
+        address: '7100 Biscayne Blvd, Miami, FL 33138',
+        category: 'Vietnamese'
     },
     {
         title: 'Red, the Steakhouse',
@@ -125,6 +139,15 @@ var locations = [
                     'an extensive wine list, chic ambiance & smart decor. ',
         address: '119 Washington Ave, Miami Beach, FL 33139',
         category: 'BBQ, Steakhouse'
+    },
+    {
+        title: 'Santorini by Georgios',
+        location: {lat: 25.769685, lng: -80.132389},
+        description: 'A unique place that offers something for ' +
+                    'everyone providing fresh mediterranean cuisine ' +
+                    'which embraces Greek cultures.',
+        address: '101 Ocean Dr, Miami Beach, FL 33139',
+        category: 'Greek'
     },
     {
         title: 'Toni\'s Sushi Bar',
@@ -143,36 +166,13 @@ var locations = [
         category: 'BBQ, Southern'
     },
     {
-        title: 'Eating House',
-        location: {lat: 25.764205, lng: -80.259476},
-        description: 'Menu of eclectic, locally sourced dishes in a ' +
-                    'low-key interior decked with graffiti art. ',
-        address: '804 Ponce De Leon Blvd, Coral Gables, FL 33134',
-        category: 'Brunch, American'
-    },
-    {
-        title: 'Cibo Wine Bar',
-        location: {lat: 25.767860, lng: -80.133633},
-        description: 'Modern-rustic spot delivering classic Italian fare ' +
-                    '& large roster of wines from whimsical wine wall. ',
-        address: '45 Miracle Mile, Miami, FL 33134',
-        category: 'Italian, Whine house'
-    },
-    {
-        title: 'Katsuya',
-        location: {lat: 25.792607, lng: -80.128684},
-        description: 'Stylish choice for acclaimed sushi in a colorful, ' +
-                    'butterfly-covered backdrop at the SLS Hotel. ',
-        address: '1701 Collins Ave, Miami Beach, FL 33139',
-        category: 'Sushi'
-    },
-    {
-        title: 'A Fish Called Avalon',
-        location: {lat: 25.776958, lng: -80.131709},
-        description: 'Airy, upscale haunt featuring eclectic seafood ' +
-                    'dishes & prime people-watching from sidewalk seats.',
-        address: '700 Ocean Dr, Miami Beach, FL 33139',
-        category: 'Seafood'
+        title: 'Zest Miami',
+        location: {lat: 25.770810, lng: -80.189372},
+        description: 'Inventive takes on island fare headline the menu ' +
+                    'at this modern restaurant/market.',
+        address: '200 South Biscayne Boulevard, Southeast Financial ' +
+                    'Center, Miami, FL 33131',
+        category: 'Caribbean'
     },
     {
         title: 'Zuma',
