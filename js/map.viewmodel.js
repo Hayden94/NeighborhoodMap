@@ -16,10 +16,6 @@ var ViewModel = function() {
     self.locationMarkers = ko.observableArray([]);
     self.infowindow = new google.maps.InfoWindow();
 
-    // for yelp fusion api
-    // var clientId = 'IBd5X_oO6aJyNMPMai8Q3A';
-    //var clientSecret = 'PFwrZlr2sa5giWHS5btIQSD2aKOZ7n6xOhJ61siLqHZ6vIFMHnzVAulwsyraO1jW';
-
     locations.forEach(function(location) {
 
         self.locationMarkers.push(new Location(location));
@@ -56,9 +52,20 @@ var ViewModel = function() {
         output += "</div>";
         output += "</div>";
 
+        // Set all markers to the white icon
+        for (var i = 0; i < self.locationMarkers().length; i++) {
+            self.locationMarkers()[i].marker.setIcon(whiteIcon);
+        };
+
+        // Animate the clicked restaurant's marker to the blue icon
+        location.marker.setIcon(blueIcon);
+
+        // Set the clicked restaurant's info window to appropriate output
         self.infowindow.setContent(output);
 
+        // Open infowindow to set content
         self.infowindow.open(map, location.marker);
+
 
         self.infowindow.addListener('closeclick', function() {
                 location.marker.setIcon(whiteIcon);

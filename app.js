@@ -37,6 +37,8 @@ yelp.accessToken(clientId, clientSecret).then(response => {
     var client = yelp.client(response.jsonBody.access_token);
     var result, restaurant;
 
+
+    // Loop over location searches, return yelp result, and push it to an array
     for (var j = 0; j < locationSearch.length; j++) {
         client.search(locationSearch[j]).then(response => {
             result = response.jsonBody.businesses[0];
@@ -49,6 +51,11 @@ yelp.accessToken(clientId, clientSecret).then(response => {
 }).catch(e => {
     console.log(e);
 });
+
+setTimeout(function() {
+    yelpResults = yelpResults.sort();
+    console.log(yelpResults);
+}, 1750);
 
 // return index.html on web server home
 app.get('/', (request, response) => {
