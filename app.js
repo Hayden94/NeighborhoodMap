@@ -42,8 +42,7 @@ yelp.accessToken(clientId, clientSecret).then(response => {
     for (var j = 0; j < locationSearch.length; j++) {
         client.search(locationSearch[j]).then(response => {
             result = response.jsonBody.businesses[0];
-            restaurant = JSON.stringify(result, ['name', 'image_url', 'url', 'rating', 'price', 'display_phone']);
-            yelpResults.push(restaurant);
+            yelpResults.push(result);
         }).catch(e => {
             console.log(e);
         });
@@ -52,15 +51,32 @@ yelp.accessToken(clientId, clientSecret).then(response => {
     console.log(e);
 });
 
+// Give time for yelpResults to populate and the sort the data alphabetically by name
 setTimeout(function() {
-    yelpResults = yelpResults.sort();
-    console.log(yelpResults);
-}, 1750);
+        yelpResults = yelpResults.sort(function(a, b) {
+            return compareStrings(a.name, b.name);
+        });
+    }, 1750);
 
 // return index.html on web server home
-app.get('/', (request, response) => {
-  response.sendFile("index.html");
-});
+app.get('/', (req, res) => {
+    res.sendFile("index.html");
+    });
+
+
+// return yelp json data
+app.get('/yelp', (req, res) => {
+        res.send(yelpResults)
+        });
+
+
+// Function to sort json object alphabetically
+function compareStrings(a, b) {
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+
+    return (a < b) ? -1 : (a > b) ? 1 : 0;
+}
 
 app.listen(port, (err) => {
   if (err) {
