@@ -23,114 +23,19 @@
 
         <div class="navbar">
             <div class="row">
+                <div class="col-md-4">
+                    <h3>Search</h3>
+
+                    <input type="text" id="search-box"><input type="button" value="Search" id="search-btn">
+                </div>
+
                 <div class="col-md-8">
                     <h3>Restaurants</h3>
 
-                    <div id="restaurant-list">
-                        <div class="row">
-                            <div class="col-md-3" data-bind="foreach: locations">
-                                <!-- ko if:$index() < 5 -->
-                                <a href="#" id="ind-restaurant" data-bind="text: title, click: $parent.openInfoWindow"></a></br>
-                                <!-- /ko -->
-                            </div>
-                            <div class="col-md-3" data-bind="foreach: locations">
-                                <!-- ko if:$index() >= 5 & $index() < 10 -->
-                                <a href="#" id="ind-restaurant" data-bind="text: title, click: $parent.openInfoWindow"></a></br>
-                                <!-- /ko -->
-                            </div>
-                            <div class="col-md-3" data-bind="foreach: locations">
-                                <!-- ko if:$index() >= 10 & $index() < 15 -->
-                                <a href="#" id="ind-restaurant" data-bind="text: title, click: $parent.openInfoWindow"></a></br>
-                                <!-- /ko -->
-                            </div>
-                            <div class="col-md-3" data-bind="foreach: locations">
-                                <!-- ko if:$index() >= 15 & $index() < 21 -->
-                                <a href="#" id="ind-restaurant" data-bind="text: title, click: $parent.openInfoWindow"></a></br>
-                                <!-- /ko -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-
-                    <h3>Food genres</h3>
-
-                    <div id="filters">
-                        <div class='row'>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Seafood"> Seafood
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Vietnamese"> Vietnamese
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="South African"> South African
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Greek"> Greek
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Pizza"> Pizza
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Italian"> Italian
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Caribbean"> Caribbean
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Mexican"> Mexican
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Thai"> Thai
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="BBQ"> BBQ
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="American"> American
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Mandarin"> Mandarin
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Peruvian"> Peruvian
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Steakhouse"> Steakhouse
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Sushi"> Sushi
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Southern"> Southern
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Brunch"> Brunch
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Whine house"> Whine House
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Japanese"> Japanese
-                            </div>
-                            <div class="col-md-3">
-                                <input type="checkbox" name="Noodle"> Noodle
-                            </div>
-                        </div>
+                    <div id="restaurant-list" data-bind="foreach: locations">
+                        <a href="#" id="ind-restaurant">
+                            <h4 data-bind="text: title, click: $parent.openInfoWindow"></h4>
+                        </a>
                     </div>
                 </div>
             </div>
