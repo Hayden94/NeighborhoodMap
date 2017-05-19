@@ -63,12 +63,10 @@ app.get('/', (req, res) => {
     res.sendFile("index.html");
     });
 
-
 // return yelp json data
 app.get('/yelp', (req, res) => {
         res.send(yelpResults)
         });
-
 
 // Function to sort json object alphabetically
 function compareStrings(a, b) {

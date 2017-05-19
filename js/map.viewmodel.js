@@ -10,11 +10,34 @@ function Location(data) {
     this.show = ko.observable(true);
 };
 
+function Yelp(data) {
+    this.image_url = data.image_url;
+    this.url = data.url;
+    this.review_count = data.review_count;
+    this.rating = data.rating;
+    this.price = data.price;
+    this.phone = data.display_phone;
+
+    this.show = ko.observable(true);
+}
+
 var ViewModel = function() {
     var self = this;
 
     self.locationMarkers = ko.observableArray([]);
     self.infowindow = new google.maps.InfoWindow();
+
+    /* CODE TO BE WORKED ON
+    setTimeout($.ajax({
+          url: "/yelp",
+          dataType: "json",
+          success: function(data) {
+            data.forEach(function(location) {
+                self.locationMarkers.push(new Yelp(location))
+            });
+          }
+    }), 1750);
+    */
 
     locations.forEach(function(location) {
 
@@ -29,6 +52,7 @@ var ViewModel = function() {
         var output = "<div class='infowindow'>";
         output += "<h3 class='infotitle' data-bind='text: title'>";
         output += location.title;
+        output += location.phone;
         output += "</h3>";
         output += "<div class='infored'>"
         output += "Description";
