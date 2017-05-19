@@ -65,19 +65,11 @@ npm install express --save
 
 ### Yelp Fusion
 
-To install Yelp Fusion clone or download the ZIP from:
-```
-https://github.com/Yelp/yelp-fusion.git
-```
+To install Yelp Fusion:
 
-CD into the directory
+Run the command
 ```
-cd yelp-fusion/fusion/node
-```
-
-Install the depenences:
-```
-npm install
+npm install yelp-fusion --save
 ```
 
 ## Deployment
