@@ -29,35 +29,6 @@ html, body {
     margin-right: 5px;
 }
 
-#search-btn {
-    background-color: #00284d;
-    color: #e6e6e6;
-    border: 3px solid #e60000;
-    border-radius: 10px;
-}
-
-#restaurant-list {
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-#restaurant-list::-webkit-scrollbar-track
-{
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #F5F5F5;
-}
-
-#restaurant-list::-webkit-scrollbar
-{
-    width: 6px;
-    background-color: #F5F5F5;
-}
-
-#restaurant-list::-webkit-scrollbar-thumb
-{
-    background-color: #000000;
-}
-
 .main-container {
     text-align: center;
 }
@@ -92,8 +63,26 @@ html, body {
 }
 
 #restaurant-list {
-    width: 100%;
-    height: 125px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 150px;
+}
+
+#restaurant-list::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+#restaurant-list::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+#restaurant-list::-webkit-scrollbar-thumb
+{
+    background-color: #000000;
 }
 
 #ind-restaurant {

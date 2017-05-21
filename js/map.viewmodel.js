@@ -27,6 +27,19 @@ var ViewModel = function() {
     self.locationMarkers = ko.observableArray([]);
     self.infowindow = new google.maps.InfoWindow();
 
+    self.query = ko.observable('');
+    self.filteredData = ko.computed(function() {
+        var filter = self.query().toLowerCase();
+
+        if (!filter) {
+            return self.locationMarkers();
+        } else {
+            return ko.utils.arrayFilter(self.locationMarkers(), function(item) {
+                return item.title.toLowerCase().indexOf(filter) !== -1;
+            });
+        }
+    });
+
     /* CODE TO BE WORKED ON
     setTimeout($.ajax({
           url: "/yelp",

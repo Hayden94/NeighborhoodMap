@@ -22,22 +22,16 @@
         </a>
 
         <div class="navbar">
-            <div class="row">
-                <div class="col-md-4">
-                    <h3>Search</h3>
+            <h3>Search</h3>
 
-                    <input type="text" id="search-box"><input type="button" value="Search" id="search-btn">
-                </div>
+            <input type="text" id="search-box" data-bind="textInput: query" autocomplete="off">
 
-                <div class="col-md-8">
-                    <h3>Restaurants</h3>
+            <h3>Restaurants</h3>
 
-                    <div id="restaurant-list" data-bind="foreach: locations">
-                        <a href="#" id="ind-restaurant">
-                            <h4 data-bind="text: title, click: $parent.openInfoWindow"></h4>
-                        </a>
-                    </div>
-                </div>
+            <div id="restaurant-list" data-bind="foreach: filteredData">
+                <a href="#" id="ind-restaurant">
+                    <h4 data-bind="text: title, click: $parent.openInfoWindow"></h4>
+                </a>
             </div>
         </div>
 
