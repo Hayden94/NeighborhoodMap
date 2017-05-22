@@ -24,11 +24,11 @@
         <div class="navbar">
             <h3>Search</h3>
 
-            <input type="text" id="search-box" data-bind="textInput: query" autocomplete="off">
+            <input placeholder="Search..." type="text" id="search-box" data-bind="textInput: query" autocomplete="off">
 
             <h3>Restaurants</h3>
 
-            <div id="restaurant-list" data-bind="foreach: filteredData">
+            <div id="restaurant-list" data-bind="foreach: filterRestaurants">
                 <a href="#" id="ind-restaurant">
                     <h4 data-bind="text: title, click: $parent.openInfoWindow"></h4>
                 </a>

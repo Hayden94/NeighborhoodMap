@@ -27,16 +27,42 @@ var ViewModel = function() {
     self.locationMarkers = ko.observableArray([]);
     self.infowindow = new google.maps.InfoWindow();
 
+    // Search filter for restaurant titles
     self.query = ko.observable('');
-    self.filteredData = ko.computed(function() {
+    self.filterRestaurants = ko.computed(function() {
         var filter = self.query().toLowerCase();
 
+        // if filter is blank, return all locations
         if (!filter) {
             return self.locationMarkers();
-        } else {
+        }
+        // else filter according to query
+        else {
             return ko.utils.arrayFilter(self.locationMarkers(), function(item) {
                 return item.title.toLowerCase().indexOf(filter) !== -1;
             });
+        }
+    });
+
+    // Search filter for google map markers
+    self.filterMarkers = ko.computed(function() {
+        var filter = self.query().toLowerCase();
+
+        // If query is empty, set all markers to be visible
+        if (!filter) {
+            for (var i = 0; i < self.locationMarkers().length; i++) {
+                self.locationMarkers()[i].marker.setVisible(true);
+            }
+        }
+        // Else set markers visible relative to query
+        else {
+            for (var j = 0; j < self.locationMarkers().length; j++) {
+                self.locationMarkers()[j].marker.setVisible(false);
+
+                if (self.locationMarkers()[j].title.toLowerCase().indexOf(filter) !== -1) {
+                    self.locationMarkers()[j].marker.setVisible(true);
+                }
+            }
         }
     });
 
@@ -65,7 +91,6 @@ var ViewModel = function() {
         var output = "<div class='infowindow'>";
         output += "<h3 class='infotitle' data-bind='text: title'>";
         output += location.title;
-        output += location.phone;
         output += "</h3>";
         output += "<div class='infored'>"
         output += "Description";
@@ -103,7 +128,7 @@ var ViewModel = function() {
         // Open infowindow to set content
         self.infowindow.open(map, location.marker);
 
-
+        // Close info window and set icon to white
         self.infowindow.addListener('closeclick', function() {
                 location.marker.setIcon(whiteIcon);
                 location.setMarker = null;
