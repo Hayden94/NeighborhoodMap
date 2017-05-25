@@ -10,16 +10,12 @@ function Location(data) {
     this.show = ko.observable(true);
 };
 
-function Yelp(data) {
-    this.image_url = data.image_url;
-    this.url = data.url;
-    this.review_count = data.review_count;
-    this.rating = data.rating;
-    this.price = data.price;
-    this.phone = data.display_phone;
+// Facebook constructor
+function Facebook(data) {
+
 
     this.show = ko.observable(true);
-}
+};
 
 var ViewModel = function() {
     var self = this;
@@ -48,6 +44,8 @@ var ViewModel = function() {
     self.filterMarkers = ko.computed(function() {
         var filter = self.query().toLowerCase();
 
+        self.infowindow.close();
+
         // If query is empty, set all markers to be visible
         if (!filter) {
             for (var i = 0; i < self.locationMarkers().length; i++) {
@@ -58,6 +56,7 @@ var ViewModel = function() {
         else {
             for (var j = 0; j < self.locationMarkers().length; j++) {
                 self.locationMarkers()[j].marker.setVisible(false);
+                self.locationMarkers()[j].marker.setIcon(whiteIcon);
 
                 if (self.locationMarkers()[j].title.toLowerCase().indexOf(filter) !== -1) {
                     self.locationMarkers()[j].marker.setVisible(true);
@@ -65,18 +64,6 @@ var ViewModel = function() {
             }
         }
     });
-
-    /* CODE TO BE WORKED ON
-    setTimeout($.ajax({
-          url: "/yelp",
-          dataType: "json",
-          success: function(data) {
-            data.forEach(function(location) {
-                self.locationMarkers.push(new Yelp(location))
-            });
-          }
-    }), 1750);
-    */
 
     locations.forEach(function(location) {
 

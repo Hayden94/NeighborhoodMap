@@ -184,5 +184,30 @@ var locations = [
     }
 ];
 
-exports.locations = locations;
+var fb_query;
+var fb_data = new Array();
+
+// loop through locations array to make facebook query and push to new array
+for (var i = 0; i < locations.length; i++) {
+    FB.api(
+    '/search',
+    'GET',
+    {
+        access_token: 'EAACI6SfwW9YBAPNq4f4TSBDCZBfzDBZCDnYzEkOgUaZBJLHE95KjZCE41Es3QF6RhOZAGZBB7u9FrxKadLZAje5SXgvLx2ZCqlxfAbmE5EABZAqZBsuDiawPPU9iKAllA9ZCYOzAekoFCWgxGWU2ZAZA45wc7EgkNkwZA0XAZCJZC4d2NtPjZAqZAC91jCzZCdRJ1Hv8ZCP0exIZD',
+        "q": locations[i].title + ", miami","type":"place"
+    },
+    function(response) {
+      fb_data.push(response.data[0]);
+    }
+);
+};
+
+// sort data alphabetically by name
+setTimeout(function() {
+    fb_data = fb_data.sort(function(a, b) {
+        var nameA = a.name.toLowerCase();
+        var nameB = b.name.toLowerCase();
+        return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;
+    });
+}, 1000);
 
