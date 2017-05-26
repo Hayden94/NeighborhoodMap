@@ -44,6 +44,7 @@ var ViewModel = function() {
         if (!filter) {
             for (var i = 0; i < self.locationMarkers().length; i++) {
                 self.locationMarkers()[i].marker.setVisible(true);
+                self.locationMarkers()[i].marker.setIcon(whiteIcon);
             }
         }
         // Else set markers visible relative to query
