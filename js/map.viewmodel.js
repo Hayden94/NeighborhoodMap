@@ -5,14 +5,8 @@ function Location(data) {
     this.description = data.description;
     this.address = data.address;
     this.category = data.category;
+    this.id = data.id;
     this.marker = data.marker;
-
-    this.show = ko.observable(true);
-};
-
-// Facebook constructor
-function Facebook(data) {
-
 
     this.show = ko.observable(true);
 };
@@ -79,11 +73,19 @@ var ViewModel = function() {
         output += "<h3 class='infotitle' data-bind='text: title'>";
         output += location.title;
         output += "</h3>";
+        output += "<a href='https://www.facebook.com/profile.php?id=";
+        output += location.id;
+        output += "' target='_blank'>";
+        output += "<img src='img/fb_icon.png' ";
+        output += "class='fb_icon' align='right'>";
+        output += "</a>";
+        output += "</br>";
         output += "<div class='infored'>"
         output += "Description";
         output += "</div>";
         output += "<div class='infodescription'>";
         output += location.description;
+        output += "</br>";
         output += "</div>";
         output += "</br>";
         output += "<div class='infored'>";

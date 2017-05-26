@@ -184,7 +184,6 @@ var locations = [
     }
 ];
 
-var fb_query;
 var fb_data = new Array();
 
 // loop through locations array to make facebook query and push to new array
@@ -193,11 +192,11 @@ for (var i = 0; i < locations.length; i++) {
     '/search',
     'GET',
     {
-        access_token: 'EAACI6SfwW9YBAPNq4f4TSBDCZBfzDBZCDnYzEkOgUaZBJLHE95KjZCE41Es3QF6RhOZAGZBB7u9FrxKadLZAje5SXgvLx2ZCqlxfAbmE5EABZAqZBsuDiawPPU9iKAllA9ZCYOzAekoFCWgxGWU2ZAZA45wc7EgkNkwZA0XAZCJZC4d2NtPjZAqZAC91jCzZCdRJ1Hv8ZCP0exIZD',
+        access_token: 'EAACI6SfwW9YBAAu3WLW8PEsoaXBfqPXE9sLqvzijKfFC6NmfCmqQvrMefheK2rn2cVeteSWw2CzXa5cQjc9tI52rizgOKCx7fMV5VOgnGySPYhShaZChEpqfgQPXzkyG7H3vm3fUzT2LtIj4TFBVusdtZBUWcZD',
         "q": locations[i].title + ", miami","type":"place"
     },
     function(response) {
-      fb_data.push(response.data[0]);
+        fb_data.push(response.data[0]);
     }
 );
 };
@@ -209,5 +208,12 @@ setTimeout(function() {
         var nameB = b.name.toLowerCase();
         return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;
     });
+
+    for (var i = 0; i < locations.length; i++) {
+            locations[i].id = fb_data[i]["id"];
+    }
 }, 1000);
 
+// url ex: https://www.facebook.com/profile.php?id=100012567992567
+
+// access_token expires july 25th, EAACI6SfwW9YBANZBrddpzv5pPclkZA28aITeEZAUJOnOW4TWOPfijXwhE94lxCN2DH093oEtKytJWxw97Ur3ErQOZAEf6txMOWBdsVI77QZCYv84vmdJZBLl0oYdsrwcU4JXCZB349r6Y2FEej3E98B

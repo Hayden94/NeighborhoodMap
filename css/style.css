@@ -114,19 +114,21 @@ html, body {
 
 .infored {
     color: #e60000;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
     padding-bottom: 5px;
 }
 
 .infodescription {
-    margin: 0px 10px;
+    text-indent: 10px;
 }
 
-.infoaddress {
-    text-align: center;
+.infoaddress, .infodescription, .infocategory {
+    text-align: left;
+    margin: 0px 15px;
 }
 
-.infocategory {
-    text-align: center;
+.fb_icon {
+    width: 25px;
+    border-radius: 5px;
 }
