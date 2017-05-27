@@ -184,7 +184,7 @@ var locations = [
     }
 ];
 
-var fb_data = new Array();
+var fb_data = [];
 
 // loop through locations array to make facebook query and push to new array
 for (var i = 0; i < locations.length; i++) {
@@ -196,10 +196,18 @@ for (var i = 0; i < locations.length; i++) {
         "q": locations[i].title + ", miami","type":"place"
     },
     function(response) {
-        fb_data.push(response.data[0]);
+        if (!response || response.error) {
+            var facebookError = false;
+            if (facebookError === false) {
+                facebookError = true;
+                alert('Facebook Graph API error occured');
+            }
+        } else {
+            fb_data.push(response.data[0]);
+        }
     }
 );
-};
+}
 
 // sort data alphabetically by name
 setTimeout(function() {
@@ -209,11 +217,10 @@ setTimeout(function() {
         return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;
     });
 
+    // Push facebook api data to locations array
     for (var i = 0; i < locations.length; i++) {
             locations[i].id = fb_data[i]["id"];
     }
 }, 1000);
-
-// url ex: https://www.facebook.com/profile.php?id=100012567992567
 
 // access_token expires july 25th, EAACI6SfwW9YBANZBrddpzv5pPclkZA28aITeEZAUJOnOW4TWOPfijXwhE94lxCN2DH093oEtKytJWxw97Ur3ErQOZAEf6txMOWBdsVI77QZCYv84vmdJZBLl0oYdsrwcU4JXCZB349r6Y2FEej3E98B

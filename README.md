@@ -2,7 +2,7 @@
 
 ![alt front](https://image.ibb.co/g27H35/Mbest.png)
 
-This web app features a map of Miami, FL built with Google Maps API and Yelp Fusion API where users can view Miami's best restaurants. Relevant data can be viewed about each restaurant and the restaurants can be searched by various genres of food.
+This web app features a map of Miami, FL built with Google Maps API and Facebook Graph API where users can view Miami's best restaurants. Relevant data can be viewed about each restaurant and the restaurants can be searched and filtered.
 
 ## Getting Started
 

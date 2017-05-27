@@ -9,7 +9,7 @@ function Location(data) {
     this.marker = data.marker;
 
     this.show = ko.observable(true);
-};
+}
 
 var ViewModel = function() {
     var self = this;
@@ -81,7 +81,7 @@ var ViewModel = function() {
         output += "class='fb_icon' align='right'>";
         output += "</a>";
         output += "</br>";
-        output += "<div class='infored'>"
+        output += "<div class='infored'>";
         output += "Description";
         output += "</div>";
         output += "<div class='infodescription'>";
@@ -91,7 +91,7 @@ var ViewModel = function() {
         output += "</br>";
         output += "<div class='infored'>";
         output += "Address";
-        output += "</div>"
+        output += "</div>";
         output += "<div class='infoaddress'>";
         output += location.address;
         output += "</div>";
@@ -107,7 +107,7 @@ var ViewModel = function() {
         // Set all markers to the white icon
         for (var i = 0; i < self.locationMarkers().length; i++) {
             self.locationMarkers()[i].marker.setIcon(whiteIcon);
-        };
+        }
 
         // Animate the clicked restaurant's marker to the blue icon
         location.marker.setIcon(blueIcon);

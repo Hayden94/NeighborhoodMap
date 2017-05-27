@@ -52,16 +52,18 @@ function initMap() {
 
     var vm = new ViewModel();
     ko.applyBindings(vm);
-};
+}
 
-$("input[name='Seafood']").click(function() {
-    if (this.checked) {
-        console.log('What up')
-    } else {
-        console.log('unchecked')
+// Google Maps API error handling
+function googleError() {
+    var googleError = false;
+    if (googleError === false) {
+        googleError = true;
+        alert('Google Maps API error occured');
     }
-});
+}
 
+// Menu icon slide animation when clicked.
 $("#menu-icon").click(function () {
     $(".navbar").slideToggle("slow");
 });
